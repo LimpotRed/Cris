@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#100d12">
+  <meta name="description" content="Uma história contada em temporadas, com uma carta de amor para cada dia.">
+  <title>Entre Nós — Nossa história em cartas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/cartas.js" defer></script>
+  <script src="js/app.js" defer></script>
+  <script src="js/music.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#temporadas">Pular para as temporadas</a>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Entre Nós — voltar à abertura"><span class="brand-mark" aria-hidden="true">♥</span><span>ENTRE <strong>NÓS</strong></span></a>
+    <nav class="main-nav" aria-label="Navegação principal"><a href="#inicio">Início</a><a href="#temporadas">Temporadas</a></nav>
+    <div class="music-control" role="group" aria-label="Trilha sonora">
+      <div class="music-select-wrap"><select id="music-select" data-music-select aria-label="Selecionar música"></select><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m4 6 4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <button class="music-button" id="music-button" type="button" aria-pressed="false" aria-label="Tocar música selecionada"><svg class="play-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m9 6 9 6-9 6V6Z" fill="currentColor"/></svg><svg class="pause-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8 6v12M16 6v12" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg><span id="music-label">Ouvir música</span></button>
+      <span class="music-status sr-only" data-music-status role="status" aria-live="polite"></span>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio" aria-labelledby="hero-title">
+      <div class="hero-photo" aria-hidden="true"></div><div class="hero-grain" aria-hidden="true"></div>
+      <div class="hero-content content-width">
+        <p class="eyebrow"><span class="eyebrow-line"></span> UMA HISTÓRIA SÓ NOSSA</p>
+        <h1 id="hero-title">A nossa história <em>continua.</em></h1>
+        <p class="hero-description">Uma carta por dia. Uma temporada por mês. E uma vida inteira de capítulos para viver ao seu lado.</p>
+        <div class="hero-details" aria-label="Informações da série"><span class="detail-dot"></span><span>Cartas desde 12/10/2026</span><span class="detail-separator" aria-hidden="true">·</span><span>Romance</span><span class="detail-separator" aria-hidden="true">·</span><span>Para sempre</span></div>
+        <div class="hero-actions"><a class="button button-primary" href="#temporadas"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.8a1 1 0 0 1 1.53-.85l12 7.2a1 1 0 0 1 0 1.7l-12 7.2A1 1 0 0 1 7 19.2V4.8Z"/></svg>Escolher temporada</a></div>
+      </div>
+      <div class="hero-bottom content-width"><span class="hero-kicker">TEMPORADA DE ESTREIA <span class="kicker-rule"></span> OUTUBRO 2026</span><a class="scroll-cue" href="#temporadas" aria-label="Rolar para temporadas"><span>DESCUBRA A HISTÓRIA</span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 9 7 7 7-7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+    </section>
+
+    <section class="story-intro content-width" aria-label="Sobre nossa série"><div class="story-rule" aria-hidden="true"><span>♥</span></div><p>Algumas histórias merecem ser <em>vividas de novo</em>, uma página de cada vez.</p><div class="story-rule" aria-hidden="true"><span>♥</span></div></section>
+
+    <section class="catalog-section content-width" id="temporadas" aria-labelledby="seasons-title">
+      <div class="section-heading"><div><p class="section-eyebrow">NOSSA COLEÇÃO</p><h2 id="seasons-title">Temporadas <span>da nossa história</span></h2></div><p class="section-aside">Cada mês, um novo capítulo de nós.</p></div>
+      <div class="season-picker">
+        <label class="season-picker-label" for="season-select">Escolha uma temporada</label>
+        <div class="season-select-wrap">
+          <select id="season-select" aria-controls="episodios">
+            <option value="" selected disabled>Escolha uma temporada</option>
+          </select>
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 9 7 7 7-7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+    </section>
+
+    <section class="episodes-section content-width" id="episodios" aria-labelledby="episodes-title" hidden><div class="episodes-heading"><div><p class="section-eyebrow" id="season-label">TEMPORADA 01</p><h2 id="episodes-title">Outubro <span>2026</span></h2><p class="episodes-description" id="episodes-description">Uma data, uma carta. Nossa série começa aqui.</p></div><span class="episode-count" id="episode-count"></span></div><div class="episodes-grid" id="episodes-grid"></div></section>
+  </main>
+
+  <footer class="site-footer"><div class="content-width footer-inner"><span class="footer-brand">ENTRE <strong>NÓS</strong><span aria-hidden="true"> ♥</span></span><p>Para a minha princesa, com todo o meu amor.</p><a href="#inicio">Voltar ao início ↑</a></div></footer>
+
+  <dialog class="letter-dialog" id="letter-dialog" aria-labelledby="letter-title">
+    <div class="letter-panel">
+      <button class="dialog-close" id="dialog-close" type="button" aria-label="Fechar carta"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 5 19 19M19 5 5 19" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
+      <div class="letter-header"><span class="letter-overline" id="letter-overline"></span><h2 id="letter-title"></h2><span class="letter-date" id="letter-date"></span></div>
+      <div class="letter-soundtrack">
+        <label for="letter-music-select">Trilha sonora</label>
+        <div class="letter-soundtrack-controls music-control">
+          <div class="music-select-wrap"><select id="letter-music-select" data-music-select aria-label="Selecionar música para a carta"></select><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m4 6 4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <button class="letter-music-play" data-music-toggle type="button" aria-pressed="false" aria-label="Tocar música selecionada"><svg class="play-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m9 6 9 6-9 6V6Z" fill="currentColor"/></svg><svg class="pause-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8 6v12M16 6v12" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg><span data-music-label>Ouvir</span></button>
+        </div>
+        <p class="music-status sr-only" data-music-status role="status" aria-live="polite"></p>
+      </div>
+      <div class="letter-body" id="letter-body"></div><figure class="letter-figure" id="letter-figure" hidden><img id="letter-image" alt="Nossa lembrança"><figcaption id="letter-caption"></figcaption></figure><div class="letter-signature">Com amor, <span>Lucas</span> <span aria-hidden="true">♥</span></div>
+    </div>
+  </dialog>
+  <audio id="bg-music" src="musica.mp3" preload="none" loop></audio>
+</body>
+</html>

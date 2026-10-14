@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#100c10">
+  <meta name="description" content="Uma carta por dia, um mês por temporada. Entre na nossa história.">
+  <title>Entre Nós — Nossa história</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style_coracao.css">
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+  <div class="heart-rain" aria-hidden="true"></div>
+  <div class="page-shell">
+    <header class="site-header">
+      <div class="brand">
+        <span class="brand-symbol" aria-hidden="true">♥</span>
+        <span>ENTRE NÓS</span>
+      </div>
+      <span class="header-note">UMA SÉRIE SOBRE NÓS DOIS</span>
+    </header>
+    <main id="conteudo" class="intro">
+      <div class="intro-copy">
+        <span class="eyebrow"><span class="eyebrow-line" aria-hidden="true"></span> ESTREIA · 12 DE OUTUBRO DE 2026</span>
+        <h1>O amor tem<br><em>muitos capítulos.</em></h1>
+        <p>Uma carta por dia. Um mês por temporada.<br class="desktop-break"> E a minha história favorita sempre será a nossa.</p>
+      </div>
+      <section class="relationship-counter" aria-label="Tempo que estamos juntos">
+        <p class="counter-heading">ESCOLHENDO VOCÊ HÁ</p>
+        <div class="counter-grid" role="timer" aria-live="off">
+          <div class="counter-unit"><span data-counter="months">--</span><small>MESES</small></div>
+          <div class="counter-unit"><span data-counter="days">--</span><small>DIAS</small></div>
+          <div class="counter-unit"><span data-counter="hours">--</span><small>HORAS</small></div>
+          <div class="counter-unit"><span data-counter="minutes">--</span><small>MINUTOS</small></div>
+          <div class="counter-unit"><span data-counter="seconds">--</span><small>SEGUNDOS</small></div>
+        </div>
+        <noscript><p class="counter-fallback">Nossa história começou em 12 de setembro de 2026.</p></noscript>
+      </section>
+      <div class="heart-stage">
+        <a class="heart-entry" href="cartas.html" aria-label="Entrar no catálogo da nossa história">
+          <svg class="heart-shape" viewBox="0 0 320 300" aria-hidden="true" focusable="false">
+            <defs>
+              <linearGradient id="heart-gradient" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#a42a4a"></stop>
+                <stop offset="50%" stop-color="#7b1938"></stop>
+                <stop offset="100%" stop-color="#4f1029"></stop>
+              </linearGradient>
+            </defs>
+            <path d="M160 279C143 263 24 170 24 93 24 50 57 20 99 20c29 0 50 16 61 33 11-17 32-33 61-33 42 0 75 30 75 73 0 77-119 170-136 186Z" fill="url(#heart-gradient)"></path>
+            <path d="M160 279C143 263 24 170 24 93 24 50 57 20 99 20c29 0 50 16 61 33 11-17 32-33 61-33 42 0 75 30 75 73 0 77-119 170-136 186Z" fill="none" stroke="rgba(255,231,224,.27)" stroke-width="1.5"></path>
+          </svg>
+          <span class="heart-entry-copy">
+            <span class="heart-entry-kicker">NOSSA PRÓXIMA CENA</span>
+            <span class="heart-entry-title">Entrar</span>
+            <span class="heart-entry-arrow" aria-hidden="true">↗</span>
+          </span>
+        </a>
+      </div>
+      <p class="entry-hint">TOQUE NO CORAÇÃO PARA COMEÇAR</p>
+    </main>
+    <footer class="site-footer">
+      <span>FEITO COM AMOR, PARA VOCÊ</span>
+      <span class="footer-line" aria-hidden="true"></span>
+      <span>CAPÍTULO UM · UM MÊS DE NÓS</span>
+    </footer>
+  </div>
+  <script>
+    (() => {
+      const beginning = { year: 2026, month: 9, day: 12 };
+      const formatter = new Intl.DateTimeFormat("en-US", {
+        timeZone: "America/Sao_Paulo",
+        year: "numeric",
+        month: "numeric",
+        day: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hourCycle: "h23"
+      });
+      const fields = Object.fromEntries(
+        ["months", "days", "hours", "minutes", "seconds"].map(
+          unit => [unit, document.querySelector(`[data-counter="${unit}"]`)]
+        )
+      );
+
+      function updateCounter() {
+        const parts = Object.fromEntries(
+          formatter.formatToParts(new Date())
+            .filter(part => part.type !== "literal")
+            .map(part => [part.type, Number(part.value)])
+        );
+
+        let months = (parts.year - beginning.year) * 12 + parts.month - beginning.month;
+        if (parts.day < beginning.day) months -= 1;
+        if (months < 0) {
+          for (const field of Object.values(fields)) field.textContent = "00";
+          return;
+        }
+
+        const anniversary = new Date(Date.UTC(beginning.year, beginning.month - 1 + months, beginning.day));
+        const today = Date.UTC(parts.year, parts.month - 1, parts.day);
+        const days = Math.floor((today - anniversary.getTime()) / 86400000);
+        const values = {
+          months,
+          days,
+          hours: parts.hour,
+          minutes: parts.minute,
+          seconds: parts.second
+        };
+
+        for (const [unit, value] of Object.entries(values)) {
+          fields[unit].textContent = String(value).padStart(2, "0");
+        }
+      }
+
+      updateCounter();
+      setInterval(updateCounter, 1000);
+      document.addEventListener("visibilitychange", () => {
+        if (!document.hidden) updateCounter();
+      });
+
+      const rainLayer = document.querySelector(".heart-rain");
+      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+      const rainColors = ["#e66a86", "#dc5277", "#f1a5b5", "#c83d67"];
+      let rainTimer;
+
+      function addFallingHeart(initial = false) {
+        const drop = document.createElement("span");
+        const duration = (reducedMotion.matches ? 7 : 4.5) + Math.random() * 2;
+        drop.className = "heart-drop";
+        drop.textContent = "♥";
+        drop.style.setProperty("--x", `${3 + Math.random() * 94}%`);
+        drop.style.setProperty("--size", `${11 + Math.random() * 13}px`);
+        drop.style.setProperty("--sway", `${-35 + Math.random() * 70}px`);
+        drop.style.setProperty("--drift", `${-90 + Math.random() * 180}px`);
+        drop.style.setProperty("--rotation", `${-65 + Math.random() * 130}deg`);
+        drop.style.setProperty("--duration", `${duration}s`);
+        drop.style.setProperty("--color", rainColors[Math.floor(Math.random() * rainColors.length)]);
+        if (initial) drop.style.animationDelay = `${-Math.random() * duration}s`;
+        drop.addEventListener("animationend", () => drop.remove(), { once: true });
+        rainLayer.append(drop);
+      }
+
+      function updateRain() {
+        clearInterval(rainTimer);
+        rainTimer = undefined;
+        rainLayer.replaceChildren();
+        if (document.hidden) return;
+        for (let i = 0; i < (reducedMotion.matches ? 28 : 48); i += 1) addFallingHeart(true);
+        rainTimer = setInterval(addFallingHeart, reducedMotion.matches ? 170 : 105);
+      }
+
+      updateRain();
+      document.addEventListener("visibilitychange", updateRain);
+      reducedMotion.addEventListener?.("change", updateRain);
+    })();
+  </script>
+</body>
+</html>
