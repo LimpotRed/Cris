@@ -22,5 +22,25 @@ E sempre que sua cabecinha fizer você pensar besteira, abre isso aqui e lê, t�
 Lembra que você pode sempre olhar para sua aliança linda, que brilha muito, e falar para si mesma: "Ele me ama de verdade, não preciso ficar com esses pensamentos."
 
 Porque é exatamente isso, meu amor. Eu te amo de verdade, quero você na minha vida e quero que você nunca se esqueça disso. ❤️`
+  },
+  "2026-10-13": {
+    titulo: "Estou aqui pra você e com você!",
+    texto: `Oii, minha vida! ❤️
+
+Já quero começar te pedindo desculpas por não estar te respondendo direito, mas é que eu quis te deixar um pouquinho mais tranquila e quietinha. Já tem alguns dias que você está meio pra baixo e não me conta o que está acontecendo. Às vezes, fico pensando se é alguma coisa comigo e, se for, por favor, me conta, tá?
+
+Mas relaxa, meu amor, eu não estou bravo com você nem nada disso. Só estou tentando te dar um pouquinho de espaço.
+
+E, em relação ao que você me contou hoje no carro, vou repetir mais uma vez: eu não estou ficando fudido da cabeça pensando nisso, tá? A gente vai resolver tudo, ok? Não quero que você fique preocupada com isso.
+
+Eu te amo demais, meu amor. Quero estar sempre ao seu lado, tanto nos momentos ruins quanto nos bons. Quero que você saiba que pode contar comigo pra tudo, independentemente do que estiver acontecendo.
+
+E mais uma coisa: muito obrigado de novo pelos presentes! Você não tem noção do quanto eu gostei, de verdade. Fiquei muito feliz, meu amor. ❤️
+
+Eu quero muito te ver bem, com vontade de fazer as coisas, animada e feliz. Nesses últimos dias, tenho percebido que você está meio pra baixo, e isso me preocupa, porque eu amo ver você feliz. Quero ver aquele seu jeitinho animado, seu sorriso lindo e você aproveitando as coisas que gosta.
+
+E pode ter certeza de que vou fazer tudo o que estiver ao meu alcance pra te ver assim. Não quero que você sinta que precisa estar bem o tempo todo, muito menos que precisa esconder de mim o que está sentindo. Quero que você saiba que, mesmo nos dias difíceis, eu vou estar aqui por você.
+
+Eu te amo muito, minha vida! ❤️`
   }
 };
